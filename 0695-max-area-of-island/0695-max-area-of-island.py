@@ -1,6 +1,5 @@
 class Solution:
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
-        # Time complexity: O(m*n) 
         rows, cols = len(grid), len(grid[0])
         visit = set()
         
