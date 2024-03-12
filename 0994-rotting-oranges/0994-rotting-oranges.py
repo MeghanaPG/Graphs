@@ -1,7 +1,5 @@
 class Solution:
     def orangesRotting(self, grid: List[List[int]]) -> int:
-        # BFS, Mutlisouce BFS
-        # Time complexity: 
         q = deque()
         time, fresh = 0, 0 
 
