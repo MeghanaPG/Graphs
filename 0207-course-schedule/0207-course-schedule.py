@@ -1,26 +1,32 @@
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
-        #Time: O(n+p)
-        #map each course to empty list 
+        # Graph, DFS 
+        # Time Complexity: O(n+p)
+        # for each crs we will have some prerequisites 
+        if len(prerequisites) == 1:
+            return True 
+
         preMap = {i:[] for i in range(numCourses)}
         for crs, pre in prerequisites:
             preMap[crs].append(pre)
-            
-        #visitSet = all courses along the curr dfs path 
+
+        # visitset: all courses along dfs 
         visitSet = set()
         def dfs(crs):
             if crs in visitSet:
                 return False 
             if preMap[crs] == []:
-                return True
+                return True 
             
             visitSet.add(crs)
             for pre in preMap[crs]:
                 if not dfs(pre):
-                    return False
+                    return False 
             visitSet.remove(crs)
             preMap[crs] = []
-            return True
+            return True 
+        
         for crs in range(numCourses):
-            if not dfs(crs): return False 
+            if not dfs(crs):
+                return False
         return True 
