@@ -4,7 +4,7 @@ class Solution:
 
         if not grid:
             return 0 
-
+        
         rows, cols = len(grid), len(grid[0])
         visit = set()
 
@@ -17,17 +17,20 @@ class Solution:
                 row, col = q.popleft()
                 directions = [(1,0), (-1,0), (0,1), (0,-1)]
 
-                for dr,dc in directions:
-                    r, c = row+dr, col+dc
+                for dr, dc in directions:
+                    r, c = row+dr, col + dc
                     if(r in range(rows) and c in range(cols) and
                     (r,c) not in visit and grid[r][c] == "1"):
                         q.append((r,c))
                         visit.add((r,c))
-                
+        
         for r in range(rows):
             for c in range(cols):
                 if grid[r][c] == "1" and (r,c) not in visit:
                     bfs(r,c)
-                    islands += 1 
+                    islands += 1
         
         return islands
+
+            
+
