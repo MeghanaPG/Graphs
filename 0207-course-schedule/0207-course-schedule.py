@@ -1,6 +1,8 @@
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
         # Time Complexity: O(n+p)
+        # Graph, HashMap
+        # DFS 
         preMap = {i:[] for i in range(numCourses)}
 
         for crs, pre in prerequisites:
