@@ -2,7 +2,6 @@ class Solution:
     def countComponents(self, n: int, edges: List[List[int]]) -> int:
         # Time: O(V+E)
         # Union Find 
-        # 
 
         par = [i for i in range(n)]
         rank = [1] * n
@@ -24,10 +23,10 @@ class Solution:
             
             if rank[p2] > rank[p1]:
                 par[p1] = p2 
-                rank[p2] += 1 
+                rank[p2] += rank[p1] 
             else:
                 par[p2] = p1
-                rank[p2] += 1 
+                rank[p2] += rank[p1] 
             return 1 
         
         res = n 
