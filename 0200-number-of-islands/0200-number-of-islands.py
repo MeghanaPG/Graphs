@@ -15,7 +15,7 @@ class Solution:
 
             while q:
                 row, col = q.popleft()
-                directions = [(1,0), (-1,0), (0,1), (0,-1)]
+                directions = [(-1,0), (1,0), (0,-1), (0,1)]
 
                 for dr, dc in directions:
                     r, c = row+dr, col + dc
