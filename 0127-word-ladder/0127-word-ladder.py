@@ -1,12 +1,8 @@
 class Solution:
     def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
-        # Time complexity: O(n^2.m)
-        # BFS
-        # visit, queue
-
         if endWord not in wordList:
             return 0 
-
+        
         nei = collections.defaultdict(list)
 
         wordList.append(beginWord)
@@ -16,9 +12,10 @@ class Solution:
                 pattern = word[:j] + "*" + word[j+1:]
                 nei[pattern].append(word)
 
+        
         visit = set([beginWord])
         q = deque([beginWord])
-        res = 1 
+        res = 1
 
         while q:
             for i in range(len(q)):
@@ -31,8 +28,11 @@ class Solution:
                         if neiWord not in visit:
                             visit.add(neiWord)
                             q.append(neiWord)
-            res += 1 
+            res += 1
         return 0 
+
+
+
 
 
 
