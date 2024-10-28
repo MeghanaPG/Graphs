@@ -14,10 +14,12 @@ class Solution:
         def clone(node):
             if node in oldToNew:
                 return oldToNew[node]
-            
+        
             copy = Node(node.val)
-            oldToNew[node] = copy
+            oldToNew[node] = copy 
             for nei in node.neighbors:
                 copy.neighbors.append(clone(nei))
-            return copy 
-        return clone(node) if node else None
+            return copy
+        return clone(node) if node else None         
+        
+      
